@@ -37,6 +37,7 @@ configure-stamp:
 	### configure common package
 	@echo "######## configure scangearmp"; \
 	cd ./scangearmp; ./autogen.sh --prefix=/usr LDFLAGS="-L`pwd`/../com/libs_bin${_arc}"
+	cd ./scangearmp; autoreconf --force --install
 
 	touch configure-stamp
 
@@ -69,7 +70,7 @@ clean:
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep
 	dh_installdirs
 
 	### install common package
@@ -78,17 +79,17 @@ install: build
 	rm -f $(CURDIR)/debian/${COMMON_PKG}/usr/lib/*.la $(CURDIR)/debian/${COMMON_PKG}/usr/lib/*.a
 
 	### copy common libraries
-	dh_install -s
+	dh_install --arch
 	mkdir -p $(CURDIR)/debian/${COMMON_PKG}/usr/lib
 	install -c -s -m 755 ./com/libs_bin${_arc}/*.so.* $(CURDIR)/debian/${COMMON_PKG}/usr/lib
 	
 	### copy udev rules file
-	dh_install -s
+	dh_install --arch
 	mkdir -p $(CURDIR)/debian/${COMMON_PKG}/etc/udev/rules.d
 	install -c -m 644 ./scangearmp/etc/*.rules $(CURDIR)/debian/${COMMON_PKG}/etc/udev/rules.d
 
 	### copy ini file
-	dh_install -s
+	dh_install --arch
 	mkdir -p $(CURDIR)/debian/${COMMON_PKG}/usr/lib/bjlib
 	install -c -m 666 ./com/ini/canon_mfp_net.ini $(CURDIR)/debian/${COMMON_PKG}/usr/lib/bjlib
 
@@ -99,7 +100,7 @@ install: build
 		model_num=`echo $${pkg} | cut -d- -f3` && \
 		model_dir=$${comm_name}-$${model_name}series && \
 		deb_model_dir=$(CURDIR)/debian/$${model_dir}; \
-		dh_install -s; \
+		dh_install --arch; \
 		mkdir -p $${deb_model_dir}/usr/lib; \
 		install -c -s -m 755 $${model_num}/libs_bin${_arc}/*.so.* $${deb_model_dir}/usr/lib; \
 		mkdir -p $${deb_model_dir}/usr/lib/bjlib; \

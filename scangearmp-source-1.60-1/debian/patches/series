@@ -1,0 +1,7 @@
+01_png15.patch
+02_gimp2.9.patch
+03_rename-configure.in-to-configure.ac.patch
+04_autogen.patch
+05_configure.ac.patch
+06_rename-include-to-AM-CPPFLAGS.patch
+07_update-udev-rules-syntax.patch

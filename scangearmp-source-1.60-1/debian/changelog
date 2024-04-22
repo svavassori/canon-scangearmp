@@ -1,3 +1,11 @@
+scangearmp-common (1.60-2) stable; urgency=low
+
+  * Apply some patches to make it build on Debian 12 Bookworm
+  * The first 2 patches have been copied from Arch package,
+    see https://aur.archlinux.org/packages/scangearmp-mp280
+
+ -- Sergio Vavassori <vavassori@gmail.com>  Fri, 19 Apr 2024 12:00:00 +0200
+
 scangearmp-common (1.60-1) stable; urgency=low
 
   * Initial Release.
