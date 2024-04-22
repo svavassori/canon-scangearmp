@@ -85,8 +85,8 @@ install: build
 	
 	### copy udev rules file
 	dh_install --arch
-	mkdir -p $(CURDIR)/debian/${COMMON_PKG}/etc/udev/rules.d
-	install -c -m 644 ./scangearmp/etc/*.rules $(CURDIR)/debian/${COMMON_PKG}/etc/udev/rules.d
+	mkdir -p $(CURDIR)/debian/${COMMON_PKG}/lib/udev/rules.d
+	install -c -m 644 ./scangearmp/etc/*.rules $(CURDIR)/debian/${COMMON_PKG}/lib/udev/rules.d
 
 	### copy ini file
 	dh_install --arch
