@@ -2,7 +2,7 @@ Source: scangearmp-common
 Section: graphics
 Priority: optional
 Maintainer: Canon Inc. <sup-debian@list.canon.co.jp>
-Build-Depends: debhelper-compat (= 13), libgimp2.0-dev, libsane-dev
+Build-Depends: debhelper-compat (= 13), libgimp2.0-dev, libsane-dev, libusb-dev
 Standards-Version: 4.7.0
 
 Package: scangearmp-common
