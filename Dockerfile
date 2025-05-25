@@ -1,4 +1,4 @@
-FROM debian:12.5
+FROM debian:12.11
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \

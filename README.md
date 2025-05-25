@@ -18,7 +18,7 @@ SHA256: fab6b764409f17a674ba31e45a515353cdf027562b2daee96c316bb86d6d6340  scange
 
 ```bash
 docker build -t canon-build-env:1 .
-docker run --rm -v $(pwd):/build -it -u $(id -u):$(id -g) canon-build-env:1
+docker run --rm --ulimit "nofile=1024:1048576" -v $(pwd):/build -it -u $(id -u):$(id -g) canon-build-env:1
 cd /build/scangearmp-source-1.60-1
 dpkg-buildpackage
 ```
